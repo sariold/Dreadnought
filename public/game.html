@@ -1,0 +1,115 @@
+<!doctype <!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Dreadnought</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/game.css">
+
+	<link rel="apple-touch-icon" sizes="57x57" href=images/favicons/apple-icon-57x57.png"> <link rel="apple-touch-icon"
+	 sizes="60x60" href="images/favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/favicons/favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+	<link rel="manifest" href="images/favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/favicons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+	<div id="redWarning">
+		<h1>Please Resize the Browser!</h1>
+	</div>
+	<header>
+		<h1>Dreadnought</h1>
+		<button onclick="location.href='/'" id="quitButton">Surrender</button>
+		<!--This div will contain the number of moves, the time that had past and the time limit-->
+		<div class="moveStats">
+			<p class="moves-textMine">Moves: <span id="movesMine"></span></p>
+			<p class="moves-textHis">Opponent Moves: <span id="movesHis"></span></p>
+		</div>
+		<!-- <div id="statusbar"></div> -->
+	</header>
+	<main>
+		<!--This div will contain the enemy ships-->
+		<section>
+			<div id="ships-enemy">
+				<div><h1>Enemy Ships</h1></div>
+				<div class="aircraft-carrier" id='sh1'>
+					<img id="1-img" class="ship" src="images/ShipPieces/AircraftCarrier1.png" alt="Aircraft Carier"></img>
+					<img id="2-img" class="ship" src="images/ShipPieces/AircraftCarrier2.png" alt="Aircraft Carier"></img>
+					<img id="3-img" class="ship" src="images/ShipPieces/AircraftCarrier3.png" alt="Aircraft Carier"></img>
+					<img id="4-img" class="ship" src="images/ShipPieces/AircraftCarrier4.png" alt="Aircraft Carier"></img>
+					<img id="5-img" class="ship" src="images/ShipPieces/AircraftCarrier5.png" alt="Aircraft Carier"></img>
+				</div>
+				<div class="battle-ship" id='sh2'>
+					<img id="1-img" class="ship" src="images/ShipPieces/Battleship1.png" alt="Battle Ship"></img>
+					<img id="2-img" class="ship" src="images/ShipPieces/Battleship2.png" alt="Battle Ship"></img>
+					<img id="3-img" class="ship" src="images/ShipPieces/Battleship3.png" alt="Battle Ship"></img>
+					<img id="4-img" class="ship" src="images/ShipPieces/Battleship4.png" alt="Battle Ship"></img>
+				</div>
+				<div class="cruiser" id='sh3'>
+					<img id="1-img" class="ship" src="images/ShipPieces/Cruiser1.png" alt="Cruiser"></img>
+					<img id="2-img" class="ship" src="images/ShipPieces/Cruiser2.png" alt="Cruiser"></img>
+					<img id="3-img" class="ship" src="images/ShipPieces/Cruiser3.png" alt="Cruiser"></img>
+				</div>
+				<div class="submarineOne" id='sh4'>
+					<img id="1-img" class="ship" src="images/ShipPieces/Submarine1.png" alt="Submarine"></img>
+					<img id="2-img" class="ship" src="images/ShipPieces/Submarine2.png" alt="Submarine"></img>
+					<img id="3-img" class="ship" src="images/ShipPieces/Submarine3.png" alt="Submarine"></img>
+				</div>
+				<div class="submarineTwo" id='sh5'>
+					<img id="1-img" class="ship" src="images/ShipPieces/Submarine1.png" alt="Submarine"></img>
+					<img id="2-img" class="ship" src="images/ShipPieces/Submarine2.png" alt="Submarine"></img>
+					<img id="3-img" class="ship" src="images/ShipPieces/Submarine3.png" alt="Submarine"></img>
+				</div>
+				<div class="destroyerOne" id='sh6'>
+					<img id="1-img" class="ship" src="images/ShipPieces/Destroyer1.png" alt="Destroyer"></img>
+					<img id="2-img" class="ship" src="images/ShipPieces/Destroyer2.png" alt="Destroyer"></img>
+				</div>
+				<div class="destroyerTwo" id='sh7'>
+					<img id="1-img" class="ship" src="images/ShipPieces/Destroyer1.png" alt="Destroyer"></img>
+					<img id="2-img" class="ship" src="images/ShipPieces/Destroyer2.png" alt="Destroyer"></img>
+				</div>
+			</div>
+			<!--This div will contain the player ships/ We need to get rid of the inline style!!!-->
+			<div id="ships-player">
+				<div><h1>Player Ships</h1></div>
+			</div>
+		</section>
+		<!--This div will contain the game board-->
+		<section>
+			<div id="boardPreStage">
+			</div>
+			<!--This div will contain the chat/--><div id="chatWindow">
+			<div id="history" contenteditable="false"></div>
+			<div id="chat">
+				<input autocomplete="off" type="text" id="msg_text" name="msg_text" />
+				<button type="button" id="msg_btn">Send!</button>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<p>Created By Kalin Kostadinov and Diego Sariol</p>
+	</footer>
+
+	<script src="javascript/jquery-3.1.1.min.js"></script>
+	<script src="javascript/config.js"></script>
+	<script src="javascript/messages.js"></script>
+	<script src="javascript/statuses.js"></script>
+	<script src="javascript/game.js"></script>
+</body>
+
+</html>
